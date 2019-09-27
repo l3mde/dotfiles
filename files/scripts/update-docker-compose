@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+cd "${DOCKER_COMPOSE_DIRECTORY}"
+docker-compose pull
+docker-compose up -d --remove-orphans
+docker system prune --force --all

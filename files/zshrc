@@ -1,0 +1,96 @@
+DEFAULT_USER="moody"
+ZSH_THEME=ys
+
+# Plugin settings
+#
+# tmux
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
+ZSH_TMUX_AUTOCONNECT="true"
+
+export ZSH=$HOME/.oh-my-zsh
+
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
+
+plugins=(
+  adb
+  archlinux
+  autojump
+  autopep8
+  aws
+  cargo
+  catimg
+  colored-man-pages
+  colorize
+  command-not-found
+  common-aliases
+  copydir
+  copyfile
+  cp
+  dirhistory
+  django
+  dnf
+  docker
+  docker-compose
+  encode64
+  extract
+  fancy-ctrl-z
+  git
+  git-extras
+  gitfast
+  golang
+  gpg-agent
+  gradle
+  helm
+  history
+  history-substring-search
+  jira
+  jump
+  jsontools
+  kops
+  kubectl
+  magic-enter
+  nmap
+  pep8
+  pip
+  pyenv
+  pylint
+  python
+  sudo
+  systemd
+  terraform
+  tig
+  timer
+  tmux
+  urltools
+  yum
+  wd
+)
+
+source $ZSH/oh-my-zsh.sh
+export PATH="${HOME}/.scripts:${HOME}/.bin:${PATH}"
+zstyle ':completion:*' rehash true
+
+alias open="xdg-open ${@}"
+
+export EDITOR="vim"
+export GIT_PAGER="cat"
+export GOPATH="${HOME}/.go"
+
+alias open="xdg-open ${@}"
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
+if [[ -r "${HOME}/.zshrc_local" ]]; then
+    source "${HOME}/.zshrc_local"
+fi
+if [[ -n "${L3M_AUTOUPDATE}" ]]; then
+    if [[ -h "${HOME}/.zshrc" ]]; then
+        DOTFILES_DIR="$(dirname "$(dirname "$(readlink -f "${HOME}/.zshrc")")")"
+        (cd ${DOTFILES_DIR}  > /dev/null&& ./dotdrop -p default install > /dev/null)
+    fi
+fi

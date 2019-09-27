@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+PYTHON_BIN="python3"
+PYTHON=`which "$PYTHON_BIN" &> /dev/null; echo "$?"`
+
+if [ "$PYTHON" != "0" ]; then
+    echo "> '$PYTHON3' needed!"
+    exit 1
+else
+    PYTHON=`which "$PYTHON_BIN"`
+    echo "> Using '$PYTHON' binary."
+fi
+
+SCRIPT_DIR_RELATIVE=`dirname "$0"`
+SCRIPT_DIR_ABSOLUTE=`cd "$SCRIPT_DIR_RELATIVE"; pwd`
+
+VENV_DIR="$SCRIPT_DIR_RELATIVE/.venv"
+
+echo "> Using virtual environment in '$VENV_DIR'."
+
+$PYTHON -m venv "$VENV_DIR"
+source "$VENV_DIR/bin/activate"
+pip install --upgrade setuptools pip
+pip install --upgrade dotdrop
+
+dotdrop $@

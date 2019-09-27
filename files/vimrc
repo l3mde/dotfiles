@@ -1,0 +1,95 @@
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/itchyny/lightline.vim.git'
+Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'dracula/vim', { 'as': 'dracula' }
+call plug#end()
+
+" Set colorscheme
+"set t_Co=256
+"set background=dark
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+let g:lightline = {'colorscheme': 'dracula'}
+"set termguicolors
+colorscheme dracula
+let g:dracula_colorterm = 0
+let g:dracula_bold = 0
+let g:dracula_italic = 0
+let g:dracula_underline = 0
+let g:dracula_undercurl = 0
+let g:dracula_inverse = 1
+
+" Set UTF-8 as default encoding
+set encoding=utf-8
+
+" Disable visual mouse
+set mouse-=a
+
+" Show pretty statusline
+set laststatus=2
+
+" Enable syntax highlightning
+filetype plugin on
+syntax on
+
+" Enable search highlightning
+set hlsearch
+
+" Don't create backup or swap files
+set nobackup
+set nowb
+set noswapfile
+
+" Let backspace delete
+set backspace=indent,eol,start
+
+" Use appropriate numnber of spaces when inserting
+set expandtab
+" Disable for make files
+autocmd FileType make setlocal noexpandtab
+
+" Number of spaces for every (auto)indent
+set shiftwidth=4
+
+" Number of spaces for a tab
+set tabstop=4
+
+" In front of a line will insert tab, when deleting, will delete 4 spaces as
+" tab, etc
+set smarttab
+
+" Copy structure of existing lines
+set copyindent
+
+"remove whitespaces at the end of each line
+autocmd BufWritePre * :%s/\s\+$//e
+
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+" show the cursor position all the time
+set ruler
+
+" auto read when file is changed from outside
+set autoread
+
+" Never show mode in status bar
+set noshowmode
+
+" Show matching brackets
+set showmatch
+
+" show line numbers
+set number
+
+" set leader key
+let mapleader = ","
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif

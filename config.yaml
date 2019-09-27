@@ -1,0 +1,92 @@
+actions:
+  post:
+    tmux: zsh -c 'if [[ -d ~/.tmux ]]; then (cd ~/.tmux && git pull); else (git clone
+      https://github.com/gpakosz/.tmux.git ~/.tmux); fi && ln -sf ~/.tmux/.tmux.conf
+      ~/.tmux.conf'
+    oh-my-zsh: zsh -c 'if [[ -d ~/.oh-my-zsh ]]; then (cd ~/.oh-my-zsh && git pull);
+      else (git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh);
+      fi'
+    vim-plugins: curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+      && vim +':PlugInstall' +':q' +':q'
+config:
+  backup: true
+  banner: false
+  create: true
+  dotpath: files
+  ignoreempty: false
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: link
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  f_tmux.conf.local:
+    actions:
+    - tmux
+    dst: ~/.tmux.conf.local
+    link: link
+    src: tmux.conf.local
+  f_vimrc:
+    actions:
+    - vim-plugins
+    dst: ~/.vimrc
+    link: link
+    src: vimrc
+  f_zshrc:
+    actions:
+    - oh-my-zsh
+    dst: ~/.zshrc
+    link: link
+    src: zshrc
+  f_config:
+    src: config/i3/config
+    dst: ~/.config/i3/config
+    link: link
+  f_i3status_config:
+    src: config/i3status/config
+    dst: ~/.config/i3status/config
+    link: link
+  f_dunstrc:
+    src: config/dunst/dunstrc
+    dst: ~/.config/dunst/dunstrc
+    link: link
+  d_scripts:
+    src: scripts
+    dst: ~/.scripts
+    link: link
+  f_user-dirs.dirs:
+    src: config/user-dirs.dirs
+    dst: ~/.config/user-dirs.dirs
+    link: link
+  d_lxterminal:
+    src: config/lxterminal
+    dst: ~/.config/lxterminal
+    link: link
+  f_gtkrc-2.0:
+    src: gtkrc-2.0
+    dst: ~/.gtkrc-2.0
+    link: link
+  f_compton.conf:
+    src: config/compton.conf
+    dst: ~/.config/compton.conf
+    link: link
+  d_autorandr:
+    src: config/autorandr
+    dst: ~/.config/autorandr
+    link: link
+profiles:
+  default:
+    dotfiles:
+    - f_zshrc
+    - f_vimrc
+    - f_tmux.conf.local
+    - f_config
+    - f_i3status_config
+    - f_dunstrc
+    - d_scripts
+    - f_user-dirs.dirs
+    - d_lxterminal
+    - f_gtkrc-2.0
+    - f_compton.conf
+    - d_autorandr
