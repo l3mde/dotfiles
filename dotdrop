@@ -19,7 +19,7 @@ VENV_DIR="$SCRIPT_DIR_RELATIVE/.venv"
 echo "> Using virtual environment in '$VENV_DIR'."
 
 $PYTHON -m venv "$VENV_DIR"
-source "$VENV_DIR/bin/activate"
+. "$VENV_DIR/bin/activate"
 pip install --upgrade setuptools pip
 pip install --upgrade dotdrop
 
