@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
 PYTHON_BIN="python3"
-PYTHON=`which "$PYTHON_BIN" &> /dev/null; echo "$?"`
+PYTHON=`which "$PYTHON_BIN" > /dev/null 2>&1; echo "$?"`
 
 if [ "$PYTHON" != "0" ]; then
-    echo "> '$PYTHON3' needed!"
+    echo "> '$PYTHON_BIN' needed!"
     exit 1
 else
     PYTHON=`which "$PYTHON_BIN"`
