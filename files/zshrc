@@ -16,7 +16,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   adb
   archlinux
-  autojump
   autopep8
   aws
   cargo

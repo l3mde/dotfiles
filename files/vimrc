@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'https://github.com/easymotion/vim-easymotion.git'
+Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
