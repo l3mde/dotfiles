@@ -40,11 +40,9 @@ plugins=(
   gitfast
   golang
   gpg-agent
-  gradle
   helm
   history
   history-substring-search
-  jira
   jump
   jsontools
   kops
