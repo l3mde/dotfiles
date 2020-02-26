@@ -81,12 +81,12 @@ profiles:
     - f_zshrc
     - f_vimrc
     - f_tmux.conf.local
-      #    - f_config
-      #    - f_i3status_config
-      #    - f_dunstrc
+    - f_config
+    - f_i3status_config
+    - f_dunstrc
     - d_scripts
-      #    - f_user-dirs.dirs
+    - f_user-dirs.dirs
       #    - d_lxterminal
-      #    - f_gtkrc-2.0
+    - f_gtkrc-2.0
       #    - f_compton.conf
       #    - d_autorandr
