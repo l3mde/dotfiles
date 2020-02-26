@@ -16,13 +16,16 @@ call plug#end()
 "highlight nonText ctermbg=NONE
 let g:lightline = {'colorscheme': 'dracula'}
 "set termguicolors
-colorscheme dracula
-let g:dracula_colorterm = 0
-let g:dracula_bold = 0
-let g:dracula_italic = 0
-let g:dracula_underline = 0
-let g:dracula_undercurl = 0
-let g:dracula_inverse = 1
+try 
+  colorscheme dracula
+  let g:dracula_colorterm = 0
+  let g:dracula_bold = 0
+  let g:dracula_italic = 0
+  let g:dracula_underline = 0
+  let g:dracula_undercurl = 0
+  let g:dracula_inverse = 1
+  catch
+endtry
 
 " Set UTF-8 as default encoding
 set encoding=utf-8
