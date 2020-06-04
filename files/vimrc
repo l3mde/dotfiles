@@ -1,34 +1,19 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/itchyny/lightline.vim.git'
-Plug 'https://github.com/easymotion/vim-easymotion.git'
-Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+Plug 'itchyny/lightline.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" Set colorscheme
-"set t_Co=256
-"set background=dark
-"highlight Normal ctermbg=NONE
-"highlight nonText ctermbg=NONE
-let g:lightline = {'colorscheme': 'dracula'}
-"set termguicolors
-try
-  colorscheme dracula
-  let g:dracula_colorterm = 0
-  let g:dracula_bold = 0
-  let g:dracula_italic = 0
-  let g:dracula_underline = 0
-  let g:dracula_undercurl = 0
-  let g:dracula_inverse = 1
-  catch
-endtry
+colorscheme jellybeans
+let g:lightline = {'colorscheme': 'jellybeans'}
 
 " Set UTF-8 as default encoding
 set encoding=utf-8
@@ -58,12 +43,17 @@ set backspace=indent,eol,start
 set expandtab
 " Disable for make files
 autocmd FileType make setlocal noexpandtab
+" YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
 " Number of spaces for every (auto)indent
 set shiftwidth=4
 
 " Number of spaces for a tab
 set tabstop=4
+
+" How many columns vim uses when you hit Tab
+set softtabstop=4
 
 " In front of a line will insert tab, when deleting, will delete 4 spaces as
 " tab, etc
