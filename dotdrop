@@ -23,4 +23,5 @@ $PYTHON -m venv "$VENV_DIR"
 pip install --upgrade setuptools pip
 pip install --upgrade dotdrop
 
+cd $SCRIPT_DIR_ABSOLUTE
 dotdrop $@
