@@ -34,6 +34,10 @@ dotfiles:
     dst: ~/.vimrc
     link: link
     src: vimrc
+  f_zshenv:
+    dst: ~/.zshenv
+    link: link
+    src: zshenv
   f_zshrc:
     actions:
     - oh-my-zsh
@@ -50,6 +54,7 @@ profiles:
   default:
     dotfiles:
     - d_scripts
+    - f_zshenv
     - f_zshrc
     - f_vimrc
     - f_tmux.conf.local

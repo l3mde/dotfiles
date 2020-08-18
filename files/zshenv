@@ -1,0 +1,12 @@
+function ycm-enable () {
+    egrep 'VIM_YCM_ENABLED' "${HOME}/.zshrc_local" &> /dev/null || echo 'export VIM_YCM_ENABLED=true' >> "${HOME}/.zshrc_local"
+    ycm-update
+}
+
+function ycm-update () {
+    egrep 'VIM_YCM_ENABLED' "${HOME}/.zshrc_local" &> /dev/null || (echo "You have to execute 'ycm-enable' first!"; exit 1)
+    source ~/.zshrc_local
+    YCM_DIR="${HOME}/.vim/plugged/YouCompleteMe"
+    vim +':PlugInstall' +':PlugUpdate' +':q' +':q'
+    cd "${YCM_DIR}" && git submodule update --recursive && ./install.py
+}

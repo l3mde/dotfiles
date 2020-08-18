@@ -14,7 +14,7 @@ fi
 SCRIPT_DIR_RELATIVE=`dirname "$0"`
 SCRIPT_DIR_ABSOLUTE=`cd "$SCRIPT_DIR_RELATIVE"; pwd`
 
-VENV_DIR="$SCRIPT_DIR_RELATIVE/.venv"
+VENV_DIR="$HOME/.dotfiles-venv"
 
 echo "> Using virtual environment in '$VENV_DIR'."
 
