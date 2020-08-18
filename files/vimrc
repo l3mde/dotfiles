@@ -1,13 +1,16 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
-Plug 'nanotech/jellybeans.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-fugitive'
+  Plug 'nanotech/jellybeans.vim'
+  if !empty($VIM_YCM_ENABLED)
+    Plug 'ycm-core/YouCompleteMe'
+  endif
 call plug#end()
+
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
