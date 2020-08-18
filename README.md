@@ -1,20 +1,20 @@
 # dotfiles
 
-This repository will automatically provide my dotfiles to new installations
+## Overview
 
-## requirements
+* Can be installed on any distribution
+* ToDo: ... list dependencies
+* Docker image to easily test the environment: [l3mde/dotfiles](https://hub.docker.com/r/l3mde/dotfiles)
 
-* python3
+## Installation
 
-## applications
+Inside the repository:
+
+```./dotdrop install -p default```
+
+## Applications
 
 * zsh
 * tmux
 * vim (+ optional YouCompleteMe - use: 'ycm-enable' / 'ycm-update' commands)
 * custom scripts
-
-## installation
-
-Inside the repository:
-
-`./dotdrop install -p default`
