@@ -8,6 +8,7 @@ actions:
       fi'
     vim-plugins: curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
       && vim +':PlugInstall' +'PlugUpdate' +':q' +':q' && cd ~/.vim/plugged/YouCompleteMe && git submodule update --recursive && ./install.py && reset && clear
+    gitconfig: sh ~/.scripts/set-gitconfig
 config:
   backup: true
   banner: false
@@ -39,41 +40,11 @@ dotfiles:
     dst: ~/.zshrc
     link: link
     src: zshrc
-  f_config:
-    src: config/i3/config
-    dst: ~/.config/i3/config
-    link: link
-  f_i3status_config:
-    src: config/i3status/config
-    dst: ~/.config/i3status/config
-    link: link
-  f_dunstrc:
-    src: config/dunst/dunstrc
-    dst: ~/.config/dunst/dunstrc
-    link: link
   d_scripts:
+    actions:
+    - gitconfig
     src: scripts
     dst: ~/.scripts
-    link: link
-  f_user-dirs.dirs:
-    src: config/user-dirs.dirs
-    dst: ~/.config/user-dirs.dirs
-    link: link
-  d_lxterminal:
-    src: config/lxterminal
-    dst: ~/.config/lxterminal
-    link: link
-  f_gtkrc-2.0:
-    src: gtkrc-2.0
-    dst: ~/.gtkrc-2.0
-    link: link
-  f_compton.conf:
-    src: config/compton.conf
-    dst: ~/.config/compton.conf
-    link: link
-  d_autorandr:
-    src: config/autorandr
-    dst: ~/.config/autorandr
     link: link
 profiles:
   default:
@@ -81,12 +52,4 @@ profiles:
     - f_zshrc
     - f_vimrc
     - f_tmux.conf.local
-      #    - f_config
-      #    - f_i3status_config
-      #    - f_dunstrc
-      #    - d_scripts
-      #    - f_user-dirs.dirs
-      #      #    - d_lxterminal
-      #    - f_gtkrc-2.0
-      #      #    - f_compton.conf
-      #      #    - d_autorandr
+    - d_scripts
