@@ -10,10 +10,8 @@ This repository will automatically provide my dotfiles to new installations
 
 * zsh
 * tmux
-* vim
-* i3
-* rofi
-* kitty
+* vim (+ optional YouCompleteMe - use: 'ycm-enable' / 'ycm-update' commands)
+* custom scripts
 
 ## installation
 
