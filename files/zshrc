@@ -1,4 +1,4 @@
-ENV TERM=screen-256color
+TERM=screen-256color
 DEFAULT_USER="moody"
 ZSH_THEME=ys
 
