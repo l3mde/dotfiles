@@ -10,7 +10,7 @@
 
 Inside the repository:
 
-```./dotdrop install -p default```
+```./dotdrop install -p default -a```
 
 ## Applications
 
