@@ -8,5 +8,5 @@ function ycm-update () {
     source ~/.zshrc_local
     YCM_DIR="${HOME}/.vim/plugged/YouCompleteMe"
     vim +':PlugInstall' +':PlugUpdate' +':q' +':q'
-    cd "${YCM_DIR}" && git submodule update --recursive && ./install.py
+    cd "${YCM_DIR}" && git submodule update --recursive && ./install.py --all
 }
