@@ -46,5 +46,7 @@ export GIT_PAGER="cat"
 export GOPATH="${HOME}/.go"
 # ALIAS
 alias open="xdg-open ${@}"
+# FIX WSL UMASK
+if [[ "$(umask)" = "0000" ]]; then umask 0022: fi
 # LOCAL ADDITIONS
 if [[ -r "${HOME}/.zshrc_local"  ]]; then source "${HOME}/.zshrc_local"; fi
