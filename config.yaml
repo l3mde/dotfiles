@@ -1,7 +1,6 @@
 actions:
   post:
-    gnometerminal: zsh -c 'if [[ -d ~/.dracula-gnome-terminal  ]]; then (cd ~/.dracula-gnome-terminal && git pull); else (git clone
-      https://github.com/dracula/gnome-terminal ~/.dracula-gnome-terminal); fi && cd ~/.dracula-gnome-terminal && ./install.sh --install-dircolors -s Dracula'
+    gnometerminal: zsh -c 'dconf load '/org/gnome/terminal/' < ~/.gnome-terminal-profile'
     gitconfig: sh ~/.scripts/set-gitconfig
     oh-my-zsh: zsh -c 'if [[ -d ~/.oh-my-zsh ]]; then (cd ~/.oh-my-zsh && git pull);
       else (git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh);
@@ -12,7 +11,7 @@ actions:
     gtk: zsh -c 'if [[ -d ~/.themes/dracula ]]; then (cd ~/.themes/dracula && git pull); else (git clone
       https://github.com/dracula/gtk.git ~/.themes/dracula); fi'
     tmux: zsh -c 'if [[ -d ~/.tmux/plugins/tpm ]]; then (cd ~/.tmux/plugins/tpm && git pull); else (git clone
-      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi'
+      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi && ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all'
 config:
   backup: true
   banner: false
@@ -55,8 +54,8 @@ dotfiles:
     dst: ~/.scripts
     link: link
   a_gnometerminal:
-    src:
-    dst:
+    dst: ~/.gnome-terminal-profile
+    src: gnome-terminal-profile
     actions:
     - gnometerminal
   a_gtk:
