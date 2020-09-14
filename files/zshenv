@@ -10,3 +10,8 @@ function ycm-update () {
     vim +':PlugInstall' +':PlugUpdate' +':q' +':q'
     cd "${YCM_DIR}" && git submodule update --recursive && ./install.py --go-completer --rust-completer
 }
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi

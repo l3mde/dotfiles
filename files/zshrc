@@ -28,7 +28,6 @@ plugins=(
     pip
     rust
     safe-paste
-    ssh-agent
     timer
     tmux
     web-search
