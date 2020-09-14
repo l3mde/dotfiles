@@ -1,14 +1,18 @@
 actions:
   post:
+    gnometerminal: zsh -c 'if [[ -d ~/.dracula-gnome-terminal  ]]; then (cd ~/.dracula-gnome-terminal && git pull); else (git clone
+      https://github.com/dracula/gnome-terminal ~/.dracula-gnome-terminal); fi && cd ~/.dracula-gnome-terminal && ./install.sh --install-dircolors -s Dracula'
     gitconfig: sh ~/.scripts/set-gitconfig
-    tmux: zsh -c 'if [[ -d ~/.tmux ]]; then (cd ~/.tmux && git pull); else (git clone
-      https://github.com/gpakosz/.tmux.git ~/.tmux); fi && ln -sf ~/.tmux/.tmux.conf
-      ~/.tmux.conf'
     oh-my-zsh: zsh -c 'if [[ -d ~/.oh-my-zsh ]]; then (cd ~/.oh-my-zsh && git pull);
       else (git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh);
-      fi'
+      fi && if [[ -d ~/.dracula-zsh-theme ]]; then (cd ~/.dracula-zsh-theme && git pull); else (git clone https://github.com/dracula/zsh.git ~/.dracula-zsh-theme); fi
+      && cd ~/.oh-my-zsh/themes && ln -sf ~/.dracula-zsh-theme/dracula.zsh-theme && ln -sf ~/.dracula-zsh-theme/lib'
     vim-plugins: curl -fLo ~/.vim/autoload/plug.vim --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
       && vim +':PlugInstall' +'PlugUpdate' +':q' +':q' && reset && clear
+    gtk: zsh -c 'if [[ -d ~/.themes/dracula ]]; then (cd ~/.themes/dracula && git pull); else (git clone
+      https://github.com/dracula/gtk.git ~/.themes/dracula); fi'
+    tmux: zsh -c 'if [[ -d ~/.tmux/plugins/tpm ]]; then (cd ~/.tmux/plugins/tpm && git pull); else (git clone
+      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi'
 config:
   backup: true
   banner: false
@@ -22,12 +26,12 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
-  f_tmux.conf.local:
+  f_tmux.conf:
     actions:
     - tmux
-    dst: ~/.tmux.conf.local
+    dst: ~/.tmux.conf
     link: link
-    src: tmux.conf.local
+    src: tmux.conf
   f_vimrc:
     actions:
     - vim-plugins
@@ -50,11 +54,23 @@ dotfiles:
     src: scripts
     dst: ~/.scripts
     link: link
+  a_gnometerminal:
+    src:
+    dst:
+    actions:
+    - gnometerminal
+  a_gtk:
+    src:
+    dst:
+    actions:
+    - gtk
 profiles:
   default:
     dotfiles:
+    - a_gnometerminal
+    - a_gtk
     - d_scripts
     - f_zshenv
     - f_zshrc
     - f_vimrc
-    - f_tmux.conf.local
+    - f_tmux.conf
