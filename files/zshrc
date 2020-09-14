@@ -1,94 +1,50 @@
-#TERM=screen-256color
-DEFAULT_USER="moody"
-ZSH_THEME=ys
-
-# Plugin settings
-#
-# tmux
+export ZSH="${HOME}/.oh-my-zsh"
+ZSH_THEME="ys"
+# SETTINGS
+DISABLE_UPDATE_PROMPT="true"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="yyyy-mm-dd"
 ZSH_TMUX_AUTOSTART="true"
 ZSH_TMUX_AUTOSTART_ONCE="true"
 ZSH_TMUX_AUTOCONNECT="true"
-
-export ZSH=$HOME/.oh-my-zsh
-
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="yyyy-mm-dd"
-
+# PLUGINS
 plugins=(
-  adb
-  archlinux
-  autopep8
-  aws
-  cargo
-  catimg
-  colored-man-pages
-  colorize
-  command-not-found
-  common-aliases
-  copydir
-  copyfile
-  cp
-  dirhistory
-  django
-  dnf
-  docker
-  docker-compose
-  encode64
-  extract
-  fancy-ctrl-z
-  git
-  git-extras
-  gitfast
-  golang
-  gpg-agent
-  helm
-  history
-  history-substring-search
-  jump
-  jsontools
-  kops
-  kubectl
-  magic-enter
-  nmap
-  pep8
-  pip
-  pyenv
-  pylint
-  python
-  sudo
-  systemd
-  terraform
-  tig
-  timer
-  tmux
-  urltools
-  yum
-  wd
+    cargo
+    colored-man-pages
+    colorize
+    common-aliases
+    docker
+    docker-compose
+    fancy-ctrl-z
+    git
+    git-auto-fetch
+    git-extras
+    gitfast
+    golang
+    gpg-agent
+    history
+    httpie
+    magic-enter
+    pip
+    rust
+    safe-paste
+    ssh-agent
+    timer
+    tmux
+    web-search
+    vi-mode
+    z
 )
-
+# INIT
 source $ZSH/oh-my-zsh.sh
-export PATH="${HOME}/.scripts:${HOME}/.bin:${PATH}"
+# CUSTOM
 zstyle ':completion:*' rehash true
-
-alias open="xdg-open ${@}"
-
+# ENVIRONMENT
+export PATH="${HOME}/.scripts:${HOME}/.bin:${PATH}"
 export EDITOR="vim"
 export GIT_PAGER="cat"
 export GOPATH="${HOME}/.go"
-
+# ALIAS
 alias open="xdg-open ${@}"
-
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
-
-if [[ -r "${HOME}/.zshrc_local" ]]; then
-    source "${HOME}/.zshrc_local"
-fi
-if [[ -n "${L3M_AUTOUPDATE}" ]]; then
-    if [[ -h "${HOME}/.zshrc" ]]; then
-        DOTFILES_DIR="$(dirname "$(dirname "$(readlink -f "${HOME}/.zshrc")")")"
-        (cd ${DOTFILES_DIR}  > /dev/null&& ./dotdrop -p default install > /dev/null)
-    fi
-fi
+# LOCAL ADDITIONS
+if [[ -r "${HOME}/.zshrc_local"  ]]; then source "${HOME}/.zshrc_local"; fi
