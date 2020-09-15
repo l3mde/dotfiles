@@ -8,7 +8,7 @@ function ycm-update () {
     source ~/.zshrc_local
     YCM_DIR="${HOME}/.vim/plugged/YouCompleteMe"
     vim +':PlugInstall' +':PlugUpdate' +':q' +':q'
-    cd "${YCM_DIR}" && git submodule update --recursive && ./install.py --go-completer --rust-completer
+    cd "${YCM_DIR}" && git submodule update --recursive && ./install.py --go-completer
 }
 
 if [ -n "$DESKTOP_SESSION" ];then
