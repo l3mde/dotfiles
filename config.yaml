@@ -78,3 +78,11 @@ profiles:
     - f_zshrc
     - f_vimrc
     - f_tmux.conf
+  terminal:
+    dotfiles:
+    - f_dircolors
+    - d_scripts
+    - f_zshenv
+    - f_zshrc
+    - f_vimrc
+    - f_tmux.conf
