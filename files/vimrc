@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-fugitive'
+  Plug 'scrooloose/nerdtree'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'dracula/vim', { 'as': 'dracula'  }
   if !empty($VIM_YCM_ENABLED)
     Plug 'ycm-core/YouCompleteMe'
@@ -22,6 +24,14 @@ try
   let g:lightline = {'colorscheme': 'dracula'}
   catch
 endtry
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+map <silent> <C-n> :NERDTreeToggle<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Set UTF-8 as default encoding
 set encoding=utf-8
