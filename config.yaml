@@ -31,6 +31,10 @@ dotfiles:
     dst: ~/.tmux.conf
     link: link
     src: tmux.conf
+  f_dircolors:
+    dst: ~/.dircolors
+    link: link
+    src: dircolors
   f_vimrc:
     actions:
     - vim-plugins
@@ -67,6 +71,7 @@ profiles:
   default:
     dotfiles:
     - a_gnometerminal
+    - f_dircolors
     - a_gtk
     - d_scripts
     - f_zshenv

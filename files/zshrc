@@ -49,4 +49,4 @@ alias open="xdg-open ${@}"
 if [[ "$(umask)" = "0000" ]]; then umask 0022; fi
 # LOCAL ADDITIONS
 if [[ -r "${HOME}/.zshrc_local"  ]]; then source "${HOME}/.zshrc_local"; fi
-eval `dircolors ${HOME}/.dir_colors/dircolors`
+eval `dircolors ${HOME}/.dircolors`
