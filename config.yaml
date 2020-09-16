@@ -11,7 +11,8 @@ actions:
     gtk: zsh -c 'if [[ -d ~/.themes/dracula ]]; then (cd ~/.themes/dracula && git pull); else (git clone
       https://github.com/dracula/gtk.git ~/.themes/dracula); fi'
     tmux: zsh -c 'if [[ -d ~/.tmux/plugins/tpm ]]; then (cd ~/.tmux/plugins/tpm && git pull); else (git clone
-      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi && ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all'
+      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi && ~/.tmux/plugins/tpm/bin/install_plugins'
+      #      https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm); fi && ~/.tmux/plugins/tpm/bin/install_plugins && ~/.tmux/plugins/tpm/bin/update_plugins all'
 config:
   backup: true
   banner: false
