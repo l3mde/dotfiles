@@ -5,6 +5,9 @@ ZSH_THEME="dracula"
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
+ZSH_TMUX_AUTOCONNECT="true"
 # PLUGINS
 plugins=(
     cargo
@@ -48,9 +51,3 @@ if [[ "$(umask)" = "0000" ]]; then umask 0022; fi
 # LOCAL ADDITIONS
 if [[ -r "${HOME}/.zshrc_local"  ]]; then source "${HOME}/.zshrc_local"; fi
 eval `dircolors ${HOME}/.dircolors`
-
-if [[ $(ps -p $PPID | egrep "^.*[${NO_TMUX_APPS}]\$" &>/dev/null) != 0 ]]; then
-    ZSH_TMUX_AUTOSTART="true"
-    ZSH_TMUX_AUTOSTART_ONCE="true"
-    ZSH_TMUX_AUTOCONNECT="true"
-fi
