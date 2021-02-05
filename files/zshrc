@@ -49,7 +49,7 @@ if [[ "$(umask)" = "0000" ]]; then umask 0022; fi
 if [[ -r "${HOME}/.zshrc_local"  ]]; then source "${HOME}/.zshrc_local"; fi
 eval `dircolors ${HOME}/.dircolors`
 
-if [[ $(ps -p $PPID | egrep "^.* [${NO_TMUX_APPS}]\$" &>/dev/null) != 0 ]]; then
+if [[ $(ps -p $PPID | egrep "^.*[${NO_TMUX_APPS}]\$" &>/dev/null) != 0 ]]; then
     ZSH_TMUX_AUTOSTART="true"
     ZSH_TMUX_AUTOSTART_ONCE="true"
     ZSH_TMUX_AUTOCONNECT="true"
