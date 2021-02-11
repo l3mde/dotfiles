@@ -20,7 +20,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 try
   let g:dracula_colorterm = 0
-  let g:dracula_italic = 0
   colorscheme dracula
   let g:lightline                  = { 'colorscheme': 'dracula' }
   catch
