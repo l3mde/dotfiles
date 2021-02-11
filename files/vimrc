@@ -24,14 +24,17 @@ try
   let g:lightline                  = { 'colorscheme': 'dracula' }
   catch
 endtry
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
+let g:lightline.active           = { 'left': [[ 'mode', 'paste' ], [ 'buffers' ] ] }
+"let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+let NERDTreeQuitOnOpen=1
 map <silent> <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
