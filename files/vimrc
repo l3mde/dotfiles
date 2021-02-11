@@ -38,7 +38,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-map <silent> <C-b> :ls<CR>::b<space>
+map <C-b> :ls<CR>:b<space>
 map <silent> <C-h> :bp<CR>
 map <silent> <C-l> :bn<CR>
 map <silent> <C-x> :bd<CR>
