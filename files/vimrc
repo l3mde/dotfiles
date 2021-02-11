@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
+  Plug 'mengelbrecht/lightline-bufferline'
   Plug 'easymotion/vim-easymotion'
   Plug 'airblade/vim-gitgutter'
   Plug 'jiangmiao/auto-pairs'
@@ -21,9 +22,12 @@ try
   let g:dracula_colorterm = 0
   let g:dracula_italic = 0
   colorscheme dracula
-  let g:lightline = {'colorscheme': 'dracula'}
+  let g:lightline                  = { 'colorscheme': 'dracula' }
   catch
 endtry
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -32,6 +36,12 @@ nnoremap <C-H> <C-W><C-H>
 map <silent> <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+set showtabline=2
+map <silent> <C-h> :bp<CR>
+map <silent> <C-l> :bn<CR>
+map <silent> <C-x> :bd<CR>
+map <silent> <C-q> :q!<CR>
 
 " Set UTF-8 as default encoding
 set encoding=utf-8
