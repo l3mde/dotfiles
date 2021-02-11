@@ -25,7 +25,6 @@ try
   catch
 endtry
 let g:lightline.active           = { 'left': [[ 'mode', 'paste' ], [ 'buffers' ] ] }
-"let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
 autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
@@ -39,7 +38,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-set showtabline=2
+map <silent> <C-b> :ls<CR>::b<space>
 map <silent> <C-h> :bp<CR>
 map <silent> <C-l> :bn<CR>
 map <silent> <C-x> :bd<CR>
